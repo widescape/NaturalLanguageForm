@@ -11,8 +11,9 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextView *fullTextView;
-
 @property (strong, nonatomic) IBOutlet UITextField *friendField;
+
+// Using AutoLayout constraints to position the friendField
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *friendFieldLeadingConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *friendFieldTopConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *friendFieldWidthConstraint;
@@ -43,11 +44,11 @@
   }
   self.fullTextView.text = [@[sentencePart1, friendName, sentencePart2] componentsJoinedByString:@""];
   
-  // Render the fullTextView, so that we can retrieve the last friend name's last character position
+  // Render the fullTextView, so that we can retrieve the friend name's last character position
   [self.fullTextView setNeedsLayout];
   [self.fullTextView layoutIfNeeded];
   
-  // Retrieve the frame of the last character (in relation to the textView's coordinates)
+  // Retrieve the frame of the friend name's last character (in relation to the textView's coordinates)
   UITextPosition *last = [self.fullTextView positionFromPosition:self.fullTextView.beginningOfDocument offset:sentencePart1.length + friendField.text.length];
   UITextPosition *secondToLast = [self.fullTextView positionFromPosition:last offset:-1];
   UITextRange *range = [self.fullTextView textRangeFromPosition:secondToLast toPosition:last];
