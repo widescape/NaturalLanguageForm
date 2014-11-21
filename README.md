@@ -18,4 +18,5 @@ Solution for http://stackoverflow.com/questions/25952168/put-uilabel-uitextfield
 
 * Handle text selection
 * Use NSAttributedString to format parameters differently
+* Support multiple parameters
 * Details …
