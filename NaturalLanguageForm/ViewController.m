@@ -35,8 +35,13 @@
   
   // Insert the friend name into the sentence
   NSString *sentencePart1 = @"I'm paying ";
-  NSString *sentencePart2 = @"\n$ amount\nfor description";
-  self.fullTextView.text = [@[sentencePart1, friendField.text, sentencePart2] componentsJoinedByString:@""];
+  NSString *sentencePart2 = @" $ amount\nfor description";
+  NSString *friendName = friendField.text;
+  if (friendField.text.length == 0) {
+    friendName = @"\n";
+    sentencePart2 = @"$ amount\nfor description";
+  }
+  self.fullTextView.text = [@[sentencePart1, friendName, sentencePart2] componentsJoinedByString:@""];
   
   // Render the fullTextView, so that we can retrieve the last friend name's last character position
   [self.fullTextView setNeedsLayout];
