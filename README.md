@@ -23,3 +23,4 @@ Solution for http://stackoverflow.com/questions/25952168/put-uilabel-uitextfield
   * Allow selection of the input values within the ```UITextView```, then select that range in the ```UITextField```
 * Display the caret at the actual position within the input value
 * Support multiple parameters
+*  Editing an existing value (create link actions in the attributed string)
