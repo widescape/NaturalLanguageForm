@@ -42,17 +42,35 @@
     friendName = @"\n";
     sentencePart2 = @"$ amount\nfor description";
   }
-  self.fullTextView.text = [@[sentencePart1, friendName, sentencePart2] componentsJoinedByString:@""];
+  NSString *fullSentence = [@[sentencePart1, friendName, sentencePart2] componentsJoinedByString:@""];
+  
+  // Get the ranges of the input value and of the last character
+  UITextPosition *first = [self.fullTextView positionFromPosition:self.fullTextView.beginningOfDocument offset:sentencePart1.length];
+  UITextPosition *last = [self.fullTextView positionFromPosition:first offset:friendField.text.length];
+  UITextPosition *secondToLast = [self.fullTextView positionFromPosition:last offset:-1];
+  NSInteger startInt = [self.fullTextView offsetFromPosition:self.fullTextView.beginningOfDocument toPosition:first];
+  NSInteger endInt = [self.fullTextView offsetFromPosition:first toPosition:last];
+  NSRange inputValueRange = NSMakeRange(startInt, endInt);
+  UITextRange *lastCharacterRange = [self.fullTextView textRangeFromPosition:secondToLast toPosition:last];
+  
+  // Make the input value bold
+  UIFont *normalFont = [UIFont systemFontOfSize:28];
+  UIFont *boldFont = [UIFont boldSystemFontOfSize:28];
+  NSMutableAttributedString *attrString = [NSMutableAttributedString.alloc
+                                           initWithString:fullSentence
+                                           attributes:@{NSForegroundColorAttributeName: UIColor.whiteColor,
+                                                        NSFontAttributeName: normalFont}];
+  [attrString beginEditing];
+  [attrString addAttribute:NSFontAttributeName value:boldFont range:inputValueRange];
+  [attrString endEditing];
   
   // Render the fullTextView, so that we can retrieve the friend name's last character position
+  self.fullTextView.attributedText = attrString;
   [self.fullTextView setNeedsLayout];
   [self.fullTextView layoutIfNeeded];
   
   // Retrieve the frame of the friend name's last character (in relation to the textView's coordinates)
-  UITextPosition *last = [self.fullTextView positionFromPosition:self.fullTextView.beginningOfDocument offset:sentencePart1.length + friendField.text.length];
-  UITextPosition *secondToLast = [self.fullTextView positionFromPosition:last offset:-1];
-  UITextRange *range = [self.fullTextView textRangeFromPosition:secondToLast toPosition:last];
-  CGRect rangeRect = [self.fullTextView firstRectForRange:range];
+  CGRect lastCharacterRect = [self.fullTextView firstRectForRange:lastCharacterRange];
   
   // Here comes the trick:
   // The friendField's width will be reduced to the width of the caret and
@@ -66,8 +84,8 @@
   }
   
   // Using AutoLayout constraints (see Main.storyboard)
-  self.friendFieldLeadingConstraint.constant = - rangeRect.origin.x - rangeRect.size.width;
-  self.friendFieldTopConstraint.constant = - rangeRect.origin.y;
+  self.friendFieldLeadingConstraint.constant = - lastCharacterRect.origin.x - lastCharacterRect.size.width;
+  self.friendFieldTopConstraint.constant = - lastCharacterRect.origin.y;
   self.friendFieldWidthConstraint.constant = width;
   
   // :-)

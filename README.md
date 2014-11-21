@@ -1,6 +1,8 @@
 NaturalLanguageForm
 ===================
 
+![Natural language form using UITextView and UITextField](Example.gif?raw=true "Just a UITextView and a UITextField")
+
 Solution for http://stackoverflow.com/questions/25952168/put-uilabel-uitextfield-on-next-line-instead-of-pushing-out-of-view
 
 ## Instructions
@@ -19,6 +21,5 @@ Solution for http://stackoverflow.com/questions/25952168/put-uilabel-uitextfield
 * Handle text selection:
   * Prevent the selection of the text around the input values within the ```UITextView```
   * Allow selection of the input values within the ```UITextView```, then select that range in the ```UITextField```
-* Use ```NSAttributedString``` to format the form text and the parameter values
 * Display the caret at the actual position within the input value
 * Support multiple parameters
