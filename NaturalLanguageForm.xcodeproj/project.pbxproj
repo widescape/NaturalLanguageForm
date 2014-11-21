@@ -14,6 +14,7 @@
 		E1A698991A1ED9C000707234 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1A698981A1ED9C000707234 /* Images.xcassets */; };
 		E1A6989C1A1ED9C000707234 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A6989A1A1ED9C000707234 /* LaunchScreen.xib */; };
 		E1A698A81A1ED9C000707234 /* NaturalLanguageFormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A698A71A1ED9C000707234 /* NaturalLanguageFormTests.m */; };
+		E1C728ED1A1F4A4700BC2B2C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E1C728EC1A1F4A4700BC2B2C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E1A698A11A1ED9C000707234 /* NaturalLanguageFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaturalLanguageFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A698A61A1ED9C000707234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A698A71A1ED9C000707234 /* NaturalLanguageFormTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageFormTests.m; sourceTree = "<group>"; };
+		E1C728EC1A1F4A4700BC2B2C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		E1A6987F1A1ED9BF00707234 = {
 			isa = PBXGroup;
 			children = (
+				E1C728EC1A1F4A4700BC2B2C /* README.md */,
 				E1A6988A1A1ED9BF00707234 /* NaturalLanguageForm */,
 				E1A698A41A1ED9C000707234 /* NaturalLanguageFormTests */,
 				E1A698891A1ED9BF00707234 /* Products */,
@@ -221,6 +224,7 @@
 			files = (
 				E1A698941A1ED9BF00707234 /* ViewController.m in Sources */,
 				E1A698911A1ED9BF00707234 /* AppDelegate.m in Sources */,
+				E1C728ED1A1F4A4700BC2B2C /* README.md in Sources */,
 				E1A6988E1A1ED9BF00707234 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +418,7 @@
 				E1A698AD1A1ED9C000707234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1A698AE1A1ED9C000707234 /* Build configuration list for PBXNativeTarget "NaturalLanguageFormTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				E1A698B01A1ED9C000707234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
